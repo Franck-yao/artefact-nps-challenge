@@ -1,0 +1,46 @@
+{
+  "model": "LogisticRegression (multinomial, balanced)",
+  "date_trained": "2026-06-19",
+  "n_features": 15,
+  "features": [
+    "Tenure in Months",
+    "is_month_to_month",
+    "is_new_customer",
+    "has_fiber",
+    "has_premium_support",
+    "Monthly Charge",
+    "Total Long Distance Charges",
+    "charge_per_service",
+    "Number of Referrals",
+    "has_referred",
+    "is_offer_E",
+    "Age",
+    "has_family",
+    "is_senior",
+    "Avg Monthly GB Download"
+  ],
+  "train_size": 844,
+  "test_size": 212,
+  "silent_size": 5987,
+  "metrics_test": {
+    "QWK": 0.449,
+    "Macro_F1": 0.5342,
+    "Balanced_Accuracy": 0.5758,
+    "Recall_Detractor": 0.84
+  },
+  "metrics_silent": {
+    "QWK": 0.3964,
+    "Macro_F1": 0.4934
+  },
+  "nps_mapping": {
+    "Detractor": "Satisfaction Score 1-2",
+    "Passive": "Satisfaction Score 3",
+    "Promoter": "Satisfaction Score 4-5"
+  },
+  "why_selected": [
+    "Best QWK on test set (0.449)",
+    "Best Recall Detractor (0.84)",
+    "Most robust on 844 train samples",
+    "Naturally interpretable for fairness audit"
+  ]
+}
