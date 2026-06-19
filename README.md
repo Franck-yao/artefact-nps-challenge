@@ -32,11 +32,11 @@ account and behavioral data, so the retention team can :
 ```
 artefact-nps-challenge/
 ├── data/
-│   ├── raw/                  ← IBM Telco Excel files (not in repo)
+│   ├── raw/                  ← IBM Telco Excel files 
 │   └── processed/            ← Generated CSV splits
 ├── models/
-│   ├── lr_pipeline.pkl       ← Trained model (not in repo)
-│   ├── features_final.pkl    ← Feature list (not in repo)
+│   ├── lr_pipeline.pkl       ← Trained model 
+│   ├── features_final.pkl    ← Feature list 
 │   └── model_metadata.json   ← Metrics and decisions
 ├── notebooks/
 │   └── NPS_Prediction.ipynb  ← Full pipeline notebook
