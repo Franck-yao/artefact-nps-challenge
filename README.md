@@ -32,16 +32,23 @@ account and behavioral data, so the retention team can :
 ```
 artefact-nps-challenge/
 ├── data/
-│   ├── raw/                  ← IBM Telco Excel files 
-│   └── processed/            ← Generated CSV splits
+│   ├── raw/                              ← IBM Telco Excel files
+│   └── processed/                        ← Generated CSV splits
 ├── models/
-│   ├── lr_pipeline.pkl       ← Trained model 
-│   ├── features_final.pkl    ← Feature list 
-│   └── model_metadata.json   ← Metrics and decisions
+│   ├── lr_pipeline.pkl                   ← Trained model
+│   ├── features_final.pkl                ← Feature list
+│   └── model_metadata.json               ← Metrics and decisions
 ├── notebooks/
-│   └── NPS_Prediction.ipynb  ← Full pipeline notebook
-├── outputs/                  ← SHAP plots and app screenshots
-├── app.py                    ← Streamlit interface
+│   └── NPS_Prediction.ipynb              ← Full pipeline notebook
+├── outputs/
+│   ├── screenshot_app_prediction.png     ← Streamlit interface screenshot
+│   ├── screenshot_app_shap.png           ← Streamlit SHAP screenshot
+│   ├── shap_bar_detractor.png            ← Global SHAP importance
+│   ├── shap_beeswarm_detractor.png       ← SHAP beeswarm plot
+│   ├── shap_waterfall_detractor.png      ← SHAP waterfall individual
+│   ├── calibration_lift_detractor.png    ← Calibration + Lift curve
+│   └── correlation_heatmap.png           ← Feature correlation heatmap
+├── app.py                                ← Streamlit interface
 ├── requirements.txt
 ├── .env.example
 └── README.md
@@ -53,7 +60,7 @@ artefact-nps-challenge/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/franck-yao/artefact-nps-challenge.git
+git clone https://github.com/Franck-yao/artefact-nps-challenge.git
 cd artefact-nps-challenge
 ```
 
@@ -86,6 +93,9 @@ notebooks/NPS_Prediction.ipynb
 This regenerates all processed data, trained model, and SHAP plots.
 All results are fully reproducible with `RANDOM_STATE = 42`.
 
+> **Note :** If running locally, change `DATA_PATH` in Cell 04
+> from `/content/` to `data/raw/`
+
 ### 6. Launch the Streamlit interface
 ```bash
 streamlit run app.py
@@ -109,6 +119,18 @@ Why LogReg beats XGBoost :
 - Small train set (844 samples) favors simpler models
 - Best Recall Detractor (84%) — most critical business metric
 - Naturally interpretable for fairness auditing
+
+**Lift curve (Detractor class) :**
+
+| % customers contacted | % Detractors captured | Lift vs random |
+|---|---|---|
+| Top 10% | 27% | 2.7x |
+| Top 20% | 57% | 2.8x |
+| Top 30% | 77% | 2.6x |
+| Top 50% | 95% | 1.9x |
+
+> Recommendation : contact top 30% of customers ranked by P(Detractor)
+> to capture 77% of all Detractors at 2.6x efficiency vs random outreach.
 
 ---
 
@@ -222,4 +244,3 @@ for the quality and correctness of all outputs.
 |---|---|
 | **Author** | Franck Yao |
 | **Email** | yaoamemou996@gmail.com |
-| **Submission link** | https://app2.greenhouse.io/tests/cffba6344429d6b8b883d86d6feb934d |
