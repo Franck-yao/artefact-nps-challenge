@@ -1,0 +1,24 @@
+
+# Documentation Word
+# *.docx
+
+# Data raw
+# data/raw/
+
+# Model artifacts
+# models/*.pkl
+
+# Virtual environment
+# venv/
+
+# Python
+__pycache__/
+*.pyc
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+# .env
+
