@@ -9,7 +9,7 @@
 |---|---|
 | **Name** | Franck Yao |
 | **Email** | yaoamemou996@gmail.com |
-| **Position applied** | Senior Data Scientist |
+| **Position applied** | Senior Data Scientist / Junior Data Scientist |
 | **Company** | Artefact CI |
 | **Date** | June 2026 |
 
@@ -82,7 +82,14 @@ pip install -r requirements.txt
 
 ### 4. Download the dataset
 Download IBM Telco Customer Churn (11.1.3+) from Kaggle :
-https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+https://www.kaggle.com/datasets/ylchang/telco-customer-churn-1113
+
+Place the 5 Excel files in `data/raw/` :
+- Telco_customer_churn_demographics.xlsx
+- Telco_customer_churn_location.xlsx
+- Telco_customer_churn_population.xlsx
+- Telco_customer_churn_services.xlsx
+- Telco_customer_churn_status.xlsx
 
 Place the 5 Excel files in `data/raw/`.
 
